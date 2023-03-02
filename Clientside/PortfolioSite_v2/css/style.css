@@ -1,3 +1,44 @@
 *{
+    margin: 0px;
+    padding: 0px;
     background-color: rgb(40, 40, 40);
+    color: rgb(220, 220, 220);
+    font-family: Verdana;
+}
+
+.container{
+    background-color: rgb(40, 40, 40);
+}
+
+/* Nav */
+#nav .nav-link{
+    color: rgb(220, 220, 220);
+}
+#nav .nav-link:hover{
+    color: rgb(120, 120, 120);
+}
+#nav .active{
+    font-weight: bold;
+    cursor:pointer;
+}
+
+#nav .disabled{
+    color:rgb(82, 82, 82);
+    text-decoration: underline;
+}
+
+#title{
+    position: absolute;
+    top:25vh;
+}
+#title h1{
+    font-weight: 600;
+    font-size: 64px;
+}
+#title #titleYear{
+    font-size: 16px;
+    margin-left: 10px;
+}
+#title p{
+    margin-left: 10vw;
 }

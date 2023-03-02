@@ -1,0 +1,27 @@
+<div id="nav">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" onclick="ChangePage('home.html')">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="ChangePage('projects.html')">Projects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function ChangePage(page = "") {
+        if (page == "") {
+            $("#page-content").load("home.html");
+        }
+        else {
+            $("#page-content").load(page);
+        }
+    }
+</script>
