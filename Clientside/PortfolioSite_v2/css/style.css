@@ -16,10 +16,10 @@
 }
 #nav .nav-link:hover{
     color: rgb(120, 120, 120);
+    cursor:pointer;
 }
 #nav .active{
     font-weight: bold;
-    cursor:pointer;
 }
 
 #nav .disabled{
