@@ -9,6 +9,7 @@ do
 
     Console.WriteLine("""
     Pick:
+    *------Types-------*
     Byte
     Int
     Char
