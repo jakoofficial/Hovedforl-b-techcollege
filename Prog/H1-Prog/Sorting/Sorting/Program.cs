@@ -28,7 +28,7 @@ static void PrintArr(int n, int[] oriArr, int[] a)
     Console.WriteLine();
 }
 
-/* Sorts the aray by checking the low index against the high index from a start position.
+/* Sorts the array by checking the low index against the high index from a start position.
  * Values: 
  * a = int array | The array to sort 
  * low = int value | Lowest position for partition
