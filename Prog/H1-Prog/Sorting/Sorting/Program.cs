@@ -1,15 +1,23 @@
 ﻿/* Quick Sorting | H1 - Grundlæggende Programming
  * Jacob Ø. Andersen */
 
+using Sorting;
+
 int[] arr = {1, 10, 3, 9, 4, 7}; //Original Array for sorting
 int[] oriArr = new int[arr.Length]; //Copy of original Array for print
 arr.CopyTo(oriArr, 0);
 
 int n = arr.Length; //Gets the lenght of the array
 
-QuickSort(arr, 0, n-1); //Sorts array
+SelectedSort.Run(arr);
 
-PrintArr(n, oriArr, arr); //Prints array
+Console.ReadLine();
+
+//QuickSort(arr, 0, n-1); //Sorts array
+
+//PrintArr(n, oriArr, arr); //Prints array
+
+
 
 /* Prints the different array values including their location in the array.
  * Values:
