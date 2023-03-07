@@ -54,9 +54,10 @@ void Pick(string input)
                 Gen<byte> gen = new Gen<byte>();
 
                 Int32.TryParse(Console.ReadLine(), out inp);
-                bytes = gen.AsArr(inp);
 
-                GetValues(bytes, t);
+                //Console.WriteLine($"{gen.AsArr(inp, sizeof(byte))}");
+
+                GetValues(bytes, t, gen.AsArr(inp, sizeof(byte)), inp);
             }
             break;
         case "int":
@@ -72,9 +73,8 @@ void Pick(string input)
                 Gen<int> gen = new Gen<int>();
 
                 Int32.TryParse(Console.ReadLine(), out inp);
-                bytes = gen.AsArr(inp);
 
-                GetValues(bytes, t);
+                GetValues(bytes, t, gen.AsArr(inp, sizeof(int)), inp);
             }
             break;
         case "char":
@@ -89,9 +89,8 @@ void Pick(string input)
                 Gen<char> gen = new Gen<char>();
 
                 Int32.TryParse(Console.ReadLine(), out inp);
-                bytes = gen.AsArr(inp);
 
-                GetValues(bytes, t);
+                GetValues(bytes, t, gen.AsArr(inp, sizeof(char)), inp);
             }
             break;
         case "float":
@@ -106,9 +105,8 @@ void Pick(string input)
 
                 Gen<float> gen = new Gen<float>();
                 Int32.TryParse(Console.ReadLine(), out inp);
-                bytes = gen.AsArr(inp);
 
-                GetValues(bytes, t);
+                GetValues(bytes, t, gen.AsArr(inp, sizeof(float)), inp);
             }
             break;
         case "double":
@@ -123,9 +121,8 @@ void Pick(string input)
 
                 Gen<double> gen = new Gen<double>();
                 Int32.TryParse(Console.ReadLine(), out inp);
-                bytes = gen.AsArr(inp);
 
-                GetValues(bytes, t);
+                GetValues(bytes, t, gen.AsArr(inp, sizeof(double)), inp);
             }
             break;
 
@@ -146,17 +143,28 @@ void GetBits(int bytes)
     Console.WriteLine("In bits: {0} | Calc: {1} * 8", res, bytes);
 }
 
-void GetValues(int bytes, string t)
+void GetValues(int bytes, string t, long arrVal = 0, int space = 0)
 {
     Console.Clear();
-    Console.WriteLine($"{t} bytes: {bytes}");
 
     GetBits(bytes);
 
-    double i = Math.Pow(2, bytes * 8);
-    Console.WriteLine($"{t} Max Number of Values: {i}");
+    if (arrVal == 0)
+    {
+        //double i = Math.Pow(2, bytes * 8);
+        long i = bytes * 8;
+        Console.WriteLine($"{t} bytes: {bytes}");
+        Console.WriteLine($"{t} Max Number of Values: {i}");
+        ShowByte(bytes);
+    }
+    else
+    {
+        long arrMaxByte = space * bytes;
+        Console.WriteLine($"{t} bytes: {arrMaxByte}");
+        Console.WriteLine($"{t} Max Number of Values: {arrMaxByte} and can hold {arrVal} array values with {space} spaces");
+        ShowByte((int)arrMaxByte);
+    }
 
-    ShowByte(bytes);
 }
 bool AskForArr()
 {
@@ -190,9 +198,9 @@ void ShowByte(int b)
 
 public class Gen<T>
 {
-    public int AsArr(int length = 1)
+    public long AsArr(int inp = 1, int size = 1)
     {
-        T[] arr = new T[length];
-        return Buffer.ByteLength(arr);
+        long arrMax = inp * (Convert.ToInt64(Math.Pow(2, size * 8)));
+        return arrMax;
     }
 }
