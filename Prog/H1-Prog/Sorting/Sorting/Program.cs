@@ -1,9 +1,5 @@
-﻿/*
- * Quick Sorting
- * H1 - Programming
- * Jacob Ø. Andersen
- */
-
+﻿/* Quick Sorting | H1 - Grundlæggende Programming
+ * Jacob Ø. Andersen */
 
 int[] arr = {1, 10, 3, 9, 4, 7}; //Original Array for sorting
 int[] oriArr = new int[arr.Length]; //Copy of original Array for print
@@ -21,11 +17,9 @@ PrintArr(n, oriArr, arr); //Prints array
  * oriArr = int array | Copy of array
  * a = int array | Array to sort */
 static void PrintArr(int n, int[] oriArr, int[] a)
-{ //Prints the Array
+{
     for (int i = 0; i < n; i++)
         Console.WriteLine("Arr space: {0} | Ori: {1} | New: {2} ", i, oriArr[i], a[i]);
-
-    Console.WriteLine();
 }
 
 /* Sorts the array by checking the low index against the high index from a start position.
@@ -38,8 +32,8 @@ static void QuickSort(int[] a, int low, int high)
     if (low < high)
     {
         int par = Partition(a, low, high); //Finds the partition index
-        /*Sorts seperately first using par as highest.
-         *Then sorts using par as lowest */
+        /*Sorts seperately first from the higest value in the array (high = par-1)
+         *Then sorts from where sorting is correct (low = par+1)*/
         QuickSort(a, low, par-1);
         QuickSort(a, par+1, high);
     }
@@ -80,8 +74,7 @@ static int Partition(int[] a, int low, int high)
  * Values:
  * a = int Array | Array for swapping
  * k = int value | Array pos of value to move
- * i = int value | Array pos of value to move
- */
+ * i = int value | Array pos of value to move */
 static void Swap(int[] a, int k, int i)
 {
     int temp = a[k];
