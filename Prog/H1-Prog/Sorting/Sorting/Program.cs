@@ -5,7 +5,7 @@ int[] arr = {1, 10, 3, 9, 4, 7}; //Original Array for sorting
 int[] oriArr = new int[arr.Length]; //Copy of original Array for print
 arr.CopyTo(oriArr, 0);
 
-int n = arr.Length;
+int n = arr.Length; //Gets the lenght of the array
 
 QuickSort(arr, 0, n-1); //Sorts array
 
