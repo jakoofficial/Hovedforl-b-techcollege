@@ -1,7 +1,12 @@
-﻿bool on = true;
+﻿using System.Globalization;
+
+bool on = true;
 string textForArray = """
                     How many array spaces?
                     """;
+
+//Console.WriteLine(b.ToString("X")); // For 5 hex numbers
+
 
 do
 {
@@ -38,6 +43,8 @@ void Pick(string input)
         case "byte":
             bytes = sizeof(byte);
             t = "Byte";
+            byte bHex = 4;
+
             GetValues(bytes, t);
 
             if (AskForArr())
@@ -55,6 +62,7 @@ void Pick(string input)
         case "int":
             bytes = sizeof(int);
             t = "Integer";
+
             GetValues(bytes, t);
 
             if (AskForArr())
@@ -132,12 +140,20 @@ void Pick(string input)
     Console.ReadKey();
 }
 
+void GetBits(int bytes)
+{
+    int res = (bytes * 8);
+    Console.WriteLine("In bits: {0} | Calc: {1} * 8", res, bytes);
+}
+
 void GetValues(int bytes, string t)
 {
     Console.Clear();
+    Console.WriteLine($"{t} bytes: {bytes}");
+
+    GetBits(bytes);
 
     double i = Math.Pow(2, bytes * 8);
-    Console.WriteLine($"{t} {bytes}");
     Console.WriteLine($"{t} Max Number of Values: {i}");
 
     ShowByte(bytes);
