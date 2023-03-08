@@ -3,20 +3,37 @@
 
 using Sorting;
 
-int[] arr = {1, 10, 3, 9, 4, 7}; //Original Array for sorting
-int[] oriArr = new int[arr.Length]; //Copy of original Array for print
-arr.CopyTo(oriArr, 0);
+//int[] arr = {1, 10, 10, 3, 9, 4, 7}; //Original Array for sorting
+//int[] oriArr = new int[arr.Length]; //Copy of original Array for print
+//arr.CopyTo(oriArr, 0);
 
-int n = arr.Length; //Gets the lenght of the array
+//int n = arr.Length; //Gets the lenght of the array
 
-SelectedSort.Run(arr);
+int counter = 0;
+
+for (int i = 0; i < 4; i++)
+{
+    test();
+    Console.WriteLine(counter);
+}
 
 Console.ReadLine();
 
-//QuickSort(arr, 0, n-1); //Sorts array
+void test()
+{
+    counter++;
+}
+
+
+
+////SelectedSort.Run(arr);
+
+
+//QuickSort(arr, 0, n - 1); //Sorts array
 
 //PrintArr(n, oriArr, arr); //Prints array
 
+//Console.ReadLine();
 
 
 /* Prints the different array values including their location in the array.
@@ -42,8 +59,8 @@ static void QuickSort(int[] a, int low, int high)
         int par = Partition(a, low, high); //Finds the partition index
         /*Sorts seperately first from the higest value in the array (high = par-1)
          *Then sorts from where sorting is correct (low = par+1)*/
-        QuickSort(a, low, par-1);
-        QuickSort(a, par+1, high);
+        QuickSort(a, low, par - 1);
+        QuickSort(a, par + 1, high);
     }
 }
 
