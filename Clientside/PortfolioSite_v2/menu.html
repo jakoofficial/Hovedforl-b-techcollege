@@ -1,4 +1,4 @@
-<div id="nav">
+<div id="nav" onload="ChangePage('home.html')">
     <ul class="nav justify-content-end">
         <li class="nav-item">
             <a class="nav-link active" onclick="ChangePage('home.html')">Home</a>
@@ -16,19 +16,35 @@
 </div>
 
 <script>
-    var tmpPage = "";
+    var startPage = "Home.html";
+    var startActive = "Projects";
+
+    $(document).ready(function(){
+        ChangePage(startPage);
+    });
 
     function ChangePage(page) {
         const links = document.querySelectorAll('.nav-link');
         if (links.length) {
             links.forEach((link) => {
-                link.addEventListener('click', (e) => {
+                
+                if (link.innerHTML == startActive && startActive != ""){
+                    link.classList.add('active');
+                    startActive = "";
+                } else {
+                    link.classList.remove('active');
+                }
+
+                link.addEventListener('click', (e) => {    
                     links.forEach((link) => {
                         link.classList.remove('active');
                     });
-                    e.preventDefault();
+                    
                     link.classList.add('active');
+                    e.preventDefault();
                 });
+                
+
             });
         }
 
