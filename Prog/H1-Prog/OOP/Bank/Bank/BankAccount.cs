@@ -27,14 +27,11 @@ namespace Bank
             if (balance >= amount)
             {
                 balance -= amount;
-                Console.WriteLine($"{amount} have been removed from your account\n" +
-                $"New account balance: {this.balance}");
+                UI.PrintTextNL($"{amount} have been removed from your account");
+                UI.PrintTextSL($"New account balance: "); UI.PrintTextNL($"{ this.balance}", ConsoleColor.Green);
             }
             else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Your balance of {this.balance} do not have the amount of {amount} in it.");
-            }
+                UI.PrintTextNL($"Your balance of {this.balance} do not have the amount of {amount} in it.", ConsoleColor.Red);
             Console.ReadLine();
         }
         public void Deposit(double amount)
@@ -43,16 +40,14 @@ namespace Bank
             if (amount > 0)
             {
                 this.balance += amount;
-                Console.WriteLine($"{amount} have been added to your account\n" +
-                    $"New account balance: {this.balance}");
+                UI.PrintTextNL($"{amount} have been added to your account");
+                UI.PrintTextSL($"New account balance: "); UI.PrintTextNL($"{ this.balance}", ConsoleColor.Green);
             }
+            
             else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{amount} is lower or equal to 0 and have not been " +
-                    $"added to the account\n" + 
+                UI.PrintTextNL($"{amount} is lower or equal to 0 and have not been " +
+                    $"added to the account\n" +
                     $"Account balance: {this.balance}");
-            }
             Console.ReadLine();
         }
     }
