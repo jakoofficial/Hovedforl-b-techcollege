@@ -11,7 +11,7 @@ namespace Sorting
         public static void Run(int[] a)
         {
             int sPos = 0;
-            int[] arr = {10, 7, 8, 1, 5}; //Original Array for sorting
+            int[] arr = a; //Original Array for sorting
             int[] tempArr = new int[arr.Length];
             arr.CopyTo(tempArr, 0);
 
@@ -33,7 +33,7 @@ namespace Sorting
         public static void SelectedSorting(int[] a, int sPos)
         {
             int pos = -1;
-            int low = a[sPos-1];
+            int low = sPos-1;
 
             for (int i = 0; i < a.Length; i++)
             {

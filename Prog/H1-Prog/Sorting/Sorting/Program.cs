@@ -3,30 +3,16 @@
 
 using Sorting;
 
-//int[] arr = {1, 10, 10, 3, 9, 4, 7}; //Original Array for sorting
-//int[] oriArr = new int[arr.Length]; //Copy of original Array for print
-//arr.CopyTo(oriArr, 0);
+int[] arr = { 1, 10, 10, 3, 9, 4, 7 }; //Original Array for sorting
+int[] oriArr = new int[arr.Length]; //Copy of original Array for print
+arr.CopyTo(oriArr, 0);
 
 //int n = arr.Length; //Gets the lenght of the array
 
-int counter = 0;
 
-for (int i = 0; i < 4; i++)
-{
-    test();
-    Console.WriteLine(counter);
-}
+SelectedSort.Run(arr);
 
 Console.ReadLine();
-
-void test()
-{
-    counter++;
-}
-
-
-
-////SelectedSort.Run(arr);
 
 
 //QuickSort(arr, 0, n - 1); //Sorts array
