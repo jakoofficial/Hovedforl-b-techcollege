@@ -8,9 +8,6 @@ namespace Automaten
 {
     public class Automat
     {
-        int[] rID = { 1, 2, 3, 4};
-        char[] prefix = { 'a', 'b', 'c', 'd'};
-
         List<Item> items = new List<Item>()
         {
             new Item(null, "Coke", 10, 12, 12),
@@ -22,16 +19,41 @@ namespace Automaten
 
         private void ItemSetup()
         {
-            items.Clear();
-            foreach (var item in items) 
+            for (int i = 0; i < items.Count; i++)
             {
+                items[i].SetID(i + 1);
+            }
+        }
 
+        private void DrawStorageItem(Item item, string nl = " ")
+        {
+            Console.Write($"{item.GetID()}:{item.GetName()}{nl}");
+        }
+
+        private void StockItems(Storage st)
+        {
+            int rowLengthNumb = 0;
+            int rowLengthMax = 4;
+            for (int i = 0; i < items.Count; i++)
+            {
+                st.AddStorageItem(items[i].GetID().ToString(), items[i]);
+                if (rowLengthNumb < rowLengthMax)
+                {
+                    DrawStorageItem(items[i]);
+                    rowLengthNumb++;
+                }
+                else
+                {
+                    DrawStorageItem(items[i], "\n");
+                    rowLengthNumb = 0;
+                }
             }
         }
 
         public void SetupAutomat(Storage storage)
         {
-
+            ItemSetup();
+            StockItems(storage);
         }
     }
 }
