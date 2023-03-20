@@ -18,7 +18,6 @@ namespace Bank
             PrintTextSL("2 ", ConsoleColor.Green); PrintTextNL("| deposit to account");
             PrintTextSL("3 ", ConsoleColor.Red); PrintTextNL("| withdraw from account");
             PrintTextSL("4 ", ConsoleColor.DarkYellow); PrintTextNL("| log out");
-
         }
         public static void End()
         {
