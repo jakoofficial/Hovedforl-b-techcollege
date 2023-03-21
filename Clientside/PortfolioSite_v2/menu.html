@@ -13,7 +13,7 @@
             <a class="nav-link" href="#">Contact</a>
         </li>
         <li>
-            <div id="mode">
+            <div onclick="SetTheme(true)" id="mode">
                 <img src="img/theemChange.png">
                 <p>mode</p>
             </div>
@@ -24,10 +24,26 @@
 <script>
     var startPage = "Home.html";
     var startActive = "Projects";
+    var themeDark;
 
     $(document).ready(function(){
         ChangePage(startPage);
+        themeDark = localStorage.getItem("Theme");
+        SetTheme();
     });
+
+    function SetTheme(clicked){
+        if (clicked)
+        {themeDark = !themeDark;}
+        if (themeDark) {
+            document.body.classList.remove("light-mode");
+        } else {
+            document.body.classList.add("light-mode");
+        }
+
+        localStorage.setItem("Theme", themeDark);
+    }
+
 
     function ChangePage(page) {
         const links = document.querySelectorAll('.nav-link');
