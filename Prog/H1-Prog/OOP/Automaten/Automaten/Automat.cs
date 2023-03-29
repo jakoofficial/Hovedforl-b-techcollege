@@ -14,6 +14,9 @@ namespace Automaten
             new Item(null, "Coke", 10, 12, 12),
             new Item(null, "Coke", 10, 12, 12),
             new Item(null, "Coke", 10, 12, 12),
+            new Item(null, "Coke", 10, 12, 12),
+            new Item(null, "Coke", 10, 12, 12),
+            new Item(null, "Coke", 10, 12, 12),
             new Item(null, "Coke", 10, 12, 12)
         };
 
@@ -27,13 +30,13 @@ namespace Automaten
 
         private void DrawStorageItem(Item item, string nl = " ")
         {
-            Console.Write($"{item.GetID()}:{item.GetName()}{nl}");
+            Console.Write($"{item.GetName()}|{item.GetID()}|{nl}");
         }
 
         private void StockItems(Storage st)
         {
             int rowLengthNumb = 0;
-            int rowLengthMax = 4;
+            int rowLengthMax = 3;
             for (int i = 0; i < items.Count; i++)
             {
                 st.AddStorageItem(items[i].GetID().ToString(), items[i]);
@@ -50,10 +53,16 @@ namespace Automaten
             }
         }
 
+        public void MachineUX()
+        {
+            int input = Interact.Input();
+        }
+
         public void SetupAutomat(Storage storage)
         {
             ItemSetup();
             StockItems(storage);
+            MachineUX();
         }
     }
 }
