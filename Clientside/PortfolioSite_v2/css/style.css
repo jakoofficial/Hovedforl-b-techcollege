@@ -10,29 +10,62 @@
 .container{
     /* background-color: rgb(40, 40, 40); */
     background: var(--background);
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#page-content {
+    margin: auto;
+    width: 50%;
+    height: 100vh;
+    /* background-color: aquamarine; */
 }
 
 /* Nav */
-#nav .nav-link{
-    background: var(--background);
-    color: var(--color);
-    min-width: 100px;
-    height: 50px;
-    transition: color 0.3s, min-width 1s, background-color 1s;
-}
-#nav .nav-link:hover{
-    color: var(--color-hover);
-    background-color: var(--background-color-hover);
-    min-width:150px;
-    cursor:pointer;
+.nav {
+    float: left;
 }
 
-#nav .active{
+.nav .nav-link{
+    background: var(--background);
+    color: var(--color);
+    overflow: hidden;
+    display: inline-flex;
+    padding-top: 10px;
+    width: 55px;
+    height: 50px;
+    transition: color 0.3s, width 1s, background-color 1s;
+}
+.nav .nav-link:hover{
+    color: var(--color-hover);
+    background-color: var(--background-color-hover);
+    width:150px;
+    cursor:pointer;
+}
+.nav .nav-link i {
+    margin-right: 20px;
+    /* padding-top: 5px; */
+    font-size: 22px;
+    background: transparent;
+}
+.nav .nav-link .fa-clipboard-list {
+    padding-left: 4px;
+    padding-top: 10px;
+}
+.nav .nav-link .fa-circle-user {
+    padding-left: 2px;
+    padding-top: 10px;
+}
+.nav .nav-link .fa-envelope {
+    padding-left: 2px;
+    padding-top: 10px;
+}
+.nav .active{
     font-weight: bold;
     border-bottom: 2px solid rgb(82, 82, 82);
 
 }
-#nav .disabled{
+.nav .disabled{
     color:rgb(82, 82, 82);
     text-decoration: underline;
 }
@@ -47,6 +80,8 @@
     cursor: pointer;
     transition: width 0.5s;
 }
+/* .material-icons { color: rgb(255, 0, 0); } */
+
 #mode p{
     position: relative;
     bottom: 30px;

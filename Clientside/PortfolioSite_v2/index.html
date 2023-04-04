@@ -9,12 +9,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="https://kit.fontawesome.com/02b0974daf.js" crossorigin="anonymous"></script>
     <title>Portfolio v2</title>
 </head>
 
 <body class="container dark-mode">
     <header>
-        <script>$("header").load("menu.html");</script>
+        <!-- <script>$("header").load("menu.html");</script> -->
+        <!-- <div id="nav" onload="ChangePage('home.html')">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="ChangePage('home.html')">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="ChangePage('projects.html')">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li>
+                    <div onclick="SetTheme(true)" id="mode">
+                        <img src="img/theemChange.png">
+                        <p>mode</p>
+                    </div>
+                </li>
+            </ul>
+        </div> -->
+        
+        <!-- <p><span class="material-icons">&#xE87C;</span></p> -->
+        <nav class="nav flex-column">
+            <a onclick="ChangePage('home.html')" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+            <a onclick="ChangePage('Projects.html')" class="nav-link"><i class="fa-solid fa-clipboard-list fa-xl"></i> Projects</a>
+            <a href="" class="nav-link"><i class="fa-solid fa-circle-user fa-xl"></i> About</a>
+            <a href="" class="nav-link"><i class="fa-solid fa-envelope fa-xl"></i> Contact</a>
+        </nav>
+
     </header>
     <section id="page-content">
         <script>
@@ -26,4 +60,44 @@
         crossorigin="anonymous"></script>
 </body>
 
+
+<script>
+    var startPage = "Home.html";
+    var startActive = "Home";
+    var themeDark;
+
+    $(document).ready(function(){
+        ChangePage(startPage);
+        themeDark = localStorage.getItem("Theme");
+        SetTheme();
+    });
+
+    function ChangePage(page) {
+        const links = document.querySelectorAll('.nav-link');
+        if (links.length) {
+            links.forEach((link) => {
+                
+                if (link.innerHTML == startActive && startActive != ""){
+                    link.classList.add('active');
+                    startActive = "";
+                } else {
+                    link.classList.remove('active');
+                }
+
+                link.addEventListener('click', (e) => {    
+                    links.forEach((link) => {
+                        link.classList.remove('active');
+                    });
+                    
+                    link.classList.add('active');
+                    e.preventDefault();
+                });
+                
+
+            });
+        }
+
+        $("#page-content").load(page);
+    }
+</script>
 </html>
