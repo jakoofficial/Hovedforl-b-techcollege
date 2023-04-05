@@ -12,18 +12,49 @@
     background: var(--background);
     margin-left: 0px;
     margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #page-content {
     margin: auto;
-    width: 50%;
+    width: 98vw;
     height: 100vh;
     /* background-color: aquamarine; */
+}
+
+#divTime {
+    float: right;
+    margin-top: 90vh;
+    /* background-color: aquamarine; */
+    background-color: var(--background);
+    min-width: none;
+    min-height: none;
+    opacity: 1;
+    z-index: -20;
+}
+#time {
+    animation: fadeIn ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    /* opacity: 0.15; */
+    font-weight: bold;
+    text-shadow: 4px 9px black;
+    font-size: 45px;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity:0.15;
+    }
 }
 
 /* Nav */
 .nav {
     float: left;
+    margin-top: 25vh;
 }
 
 .nav .nav-link{
@@ -48,22 +79,30 @@
     font-size: 22px;
     background: transparent;
 }
+.nav .nav-link .fa-house {
+    margin-left: -1px;
+    padding-top: 3px;
+}
 .nav .nav-link .fa-clipboard-list {
-    padding-left: 4px;
-    padding-top: 10px;
+    padding-left: 3px;
+    padding-top: 14px;
 }
 .nav .nav-link .fa-circle-user {
-    padding-left: 2px;
-    padding-top: 10px;
+    padding-left: 0px;
+    padding-top: 14px;
 }
 .nav .nav-link .fa-envelope {
-    padding-left: 2px;
-    padding-top: 10px;
+    padding-left: 0px;
+    padding-top: 14px;
+}
+.nav .nav-link .fa-brands {
+    padding-left: 0px;
+    padding-top: 14px;
 }
 .nav .active{
     font-weight: bold;
     border-bottom: 2px solid rgb(82, 82, 82);
-
+    background-color: var(--background-color-hover);
 }
 .nav .disabled{
     color:rgb(82, 82, 82);
@@ -120,7 +159,7 @@
     --background: rgb(40, 40, 40);
     --background-color-hover: rgb(82, 82, 82);
     --color: rgb(220, 220, 220);
-    --color-hover: rgb(120, 120, 120);
+    /* --color-hover: rgb(166, 166, 166); */
     --filter: invert(0.85);
 }
 .light-mode{
