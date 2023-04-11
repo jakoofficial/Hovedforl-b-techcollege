@@ -31,7 +31,7 @@
     min-width: none;
     min-height: none;
     opacity: 1;
-    z-index: -20;
+    z-index: 2;
 }
 #time {
     animation: fadeIn ease 3s;
@@ -49,6 +49,12 @@
     100% {
         opacity:0.15;
     }
+}
+
+#mountain_bg img{
+    position: relative;
+    left: 68vw;
+    top: 50vh;
 }
 
 /* Nav */

@@ -22,8 +22,8 @@
             <a onclick="ChangePage('Projects.html')" class="nav-link"><i class="fa-solid fa-clipboard-list fa-xl"></i> Projects</a>
             <a href="" class="nav-link"><i class="fa-solid fa-circle-user fa-xl"></i> About</a>
             <a href="" class="nav-link"><i class="fa-solid fa-envelope fa-xl"></i> Contact</a>
-            <a href="" class="nav-link"><i class="fa-brands fa-github fa-xl"></i> Github</a>
-            <a href="" class="nav-link"><i class="fa-brands fa-linkedin fa-xl"></i> Linkedin</a>
+            <a onclick="GoToURL('https://www.github.com/jakoofficial')" class="nav-link"><i class="fa-brands fa-github fa-xl"></i> Github</a>
+            <a Onclick="GoToURL('https://www.linkedin.com/in/jacob-andersen-67047612a/')" class="nav-link"><i class="fa-brands fa-linkedin fa-xl"></i> Linkedin</a>
         </nav>
 
     </header>
@@ -68,6 +68,11 @@
         }
         var time = hrs + ":" + m + ":" + sec;
         document.getElementById("time").innerHTML = time;
+    }
+
+    function GoToURL(url){
+        // window.location.href = url;
+        window.open(url, '_blank')
     }
 
     function ChangePage(page) {
