@@ -46,7 +46,12 @@
     const interval = setInterval(time, 1000);
     
     $(document).ready(function(){
-        ChangePage(startPage);
+        if (localStorage.getItem("page") != null) {
+            ChangePage(localStorage.getItem("page"));
+        }
+        else{
+            ChangePage(startPage);
+        }
         themeDark = localStorage.getItem("Theme");
         SetTheme();
     });
@@ -99,8 +104,8 @@
 
             });
         }
-
         $("#page-content").load(page);
+        localStorage.setItem("page", page)
     }
 </script>
 </html>
